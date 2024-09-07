@@ -13,7 +13,8 @@ const Form = ({ users, setUsers, isUpdate, setIsUpdate, updateId, name, setName,
         const newUser = {
             name,
             email,
-            phone
+            phone,
+            id: Math.random() * 1000,
         }
 
         if (name && email && phone) {
@@ -65,7 +66,6 @@ const Form = ({ users, setUsers, isUpdate, setIsUpdate, updateId, name, setName,
 
                 const data = await res.json();
                 setUsers(users.map(user => (user.id === id ? data : user))); // Update user in list
-                // setUsers(data)
             } catch (error) {
                 console.error('Error:', error);
             }
